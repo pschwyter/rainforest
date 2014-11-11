@@ -1,0 +1,21 @@
+<% @product.reviews.each do |review| %>
+	<p><%= review.comment %></p><br>
+	<p>Rating: <%= review.rating %></p>
+		<% if review.user != nil %>
+			<% if review.user == @product.user %>
+				<em>by <%= review.user.name %> (Owner)</em>
+			<% else %>
+				<em>by <%= review.user.name %></em>
+			<% end %>
+				<p>Added on: <%= review.created_at %></p>
+		<% end %>
+<% end %>
+
+
+<% @user.reviews.newest.each do |review| %>
+	<% if review.product != nil %>
+			<h3>Product: <%= link_to "#{review.product.name}", product_path(review.product.id) %> | Rating: <%= review.rating %></h3>
+			<p><%= review.comment %></p>
+			<em><%= review.created_at %></em>
+	<% end %>
+<% end %>

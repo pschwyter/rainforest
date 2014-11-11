@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
 
+  helper_method :product_owner?
   before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy]
-  
+  before_action :product_owner?, only: [:edit, :destroy, :update]
+
   def index
   	@products = Product.all
   end
@@ -19,7 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-  	@product = Product.new(product_params)
+  	@product = current_user.products.build(product_params)
   	if @product.save
   		redirect_to products_url
   	else
@@ -43,11 +45,15 @@ class ProductsController < ApplicationController
 
   def destroy
   	@product = Product.find(params[:id])
-  	@product.destroy
+  	@product.delete
   	redirect_to products_url
   end
 
   private
+
+  def product_owner?
+    current_user == @product.user
+  end
 
   def product_params
   	params.require(:product).permit(:name, :description, :price_in_cents, :category)

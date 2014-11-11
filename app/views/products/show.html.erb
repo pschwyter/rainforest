@@ -1,6 +1,9 @@
 <h1><%= @product.name %> | $<%= @product.formatted_price %></h1>
 
-<%= link_to "Back to Products", products_url %>
+<%= link_to "Back to Products", products_url %> <%= (link_to "Edit", edit_product_path) if product_owner? %>
+<% if product_owner? %> 
+	<%= link_to "Delete", product_path, method: :delete, :confirm => ("Are you sure you want to delete this product?") %> 
+<% end %>
 
 <p><%= @product.description %></p>
 
@@ -9,16 +12,16 @@
 
 	<h3>Reviews</h3>
 
-	<p>Reviews for <%= @product.name %>
+	<p>Reviews for <%= @product.name %></p>
 
 	<% @product.reviews.each do |review| %>
-		<p><%= review.comment %><br>
+		<p><%= review.comment %></p><br>
 		<p>Rating: <%= review.rating %></p>
 			<% if review.user != nil %>
+				<em>by <%= review.user.name %> (Owner)</em>
 				<em>by <%= review.user.name %></em>
-				Added on: <%= review.created_at %>
+				<p>Added on: <%= review.created_at %></p>
 			<% end %>
-		</p>
 	<% end %>
 	
 <% end %>

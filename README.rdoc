@@ -34,13 +34,18 @@ To do:
 DONE - fix authorizations for users not logged in
 
 2.
-- Associate product with user who created it
-- Explicitly state if reviewer is also owner of product
-- Allow owner of product to edit product
+DONE - Associate product with user who created it
+DONE - Explicitly state if reviewer is also owner of product
+DONE - Allow owner of product to edit product
+DONE - Allow owner of product to delete product while also deleting associated reviews
 
 3.
 - switch to partial for displaying post attributes
 - switch to partial for displaying review attributes
+
+4.
+-allow users to edit reviews
+-limit users to one review per product
 
 
 
