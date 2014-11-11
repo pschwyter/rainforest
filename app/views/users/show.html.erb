@@ -1,0 +1,16 @@
+<%= link_to "Back to Products", products_url %><br><br>
+
+<% if current_user %>
+	<p1><%= @user.name %>'s Profile</h1>
+
+	<p>Name : <%= @user.name %></p>
+	<p>Email: <%= @user.email %></p>
+
+	<h2>Reviews (<%= @user.reviews.count %>)</h2>
+
+	<% @user.reviews.newest.each do |review| %>
+		<h3>Product: <%= link_to "#{review.product.name}", product_path(review.product.id) %> | Rating: <%= review.rating %></h3>
+		<p><%= review.comment %></p>
+		<em><%= review.created_at %></em>
+	<% end %>
+<% end %>

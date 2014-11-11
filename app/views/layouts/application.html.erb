@@ -19,10 +19,12 @@
 
 	<div>
 		<% if current_user %>
-			<p>Signed in as <%= current_user.name %>. <%= link_to "Log out", session_path("current_user"), method: :delete %></p>
+			<p>Signed in as <%= current_user.name %>. <%= link_to "Log out", session_path("current_user"), method: :delete %>, <%= link_to "Account", user_path(current_user) %>
+			</p>
 		<% else %>
 			<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
 		<% end %>
 	</div>
+	
 </body>
 </html>

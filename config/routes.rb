@@ -5,8 +5,15 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, only: [:show, :create, :destroy]
   end
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
+
+  # get 'products/:category_name/:product_id' do
+
+  # Product.category(:movies).find(20)
+
+  # /movies/5
+  # /books/20
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
