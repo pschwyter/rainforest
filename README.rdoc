@@ -39,15 +39,18 @@ DONE - Explicitly state if reviewer is also owner of product
 DONE - Allow owner of product to edit product
 DONE - Allow owner of product to delete product while also deleting associated reviews
 
-3.
-- switch to partial for displaying post attributes
-- switch to partial for displaying review attributes
 
-4.
+3.
 -allow users to edit reviews
 -limit users to one review per product
 
+4. 
+- Finish adding categories to products
+- Add user-made tags to products
 
+5. MAYBE
+- switch to partial for displaying post attributes
+- switch to partial for displaying review attributes
 
 
 

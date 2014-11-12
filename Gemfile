@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 #Add pry-rails
 gem 'pry-rails'
-
+gem 'quiet_assets'
 gem 'awesome_print'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
