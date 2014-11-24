@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-  	#@product = Product.find(params[:id])
 
     if current_user
       @review = @product.reviews.build
@@ -40,11 +39,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-  	#@product = Product.find(params[:id])
   end
 
   def update
-  	#@product = Product.find(params[:id])
 
   	if @product.update_attributes(product_params)
   		redirect_to products_url
@@ -54,7 +51,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-  	#@product = Product.find(params[:id])
   	@product.delete
   	redirect_to products_url
   end
