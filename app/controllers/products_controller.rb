@@ -7,7 +7,11 @@ class ProductsController < ApplicationController
   before_action :product_owner?, only: [:edit, :destroy, :update]
 
   def index
-  	@products = Product.all
+    @products = if params[:search]
+      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    else
+  	 Product.all
+    end
   end
 
   def show
