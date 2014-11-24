@@ -20,10 +20,7 @@ $(document).on('ready page:load', function() {
 		event.preventDefault();
 		var searchValue = $('#search').val();
 
-		$.get('/products?search=' + searchValue)
-			.done(function(data){
-				$('#products').html(data);
-			});
+		$.getScript('/products?search=' + searchValue);
 	});
 
 });
