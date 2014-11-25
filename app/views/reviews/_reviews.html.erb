@@ -1,0 +1,12 @@
+<% @product.reviews.each do |review| %>
+	<% if review.id.present? %> <!-- Need to ensure instantiated empty review is not included -->
+		<div class="review">
+			<p class="comment">
+				<%= review.comment %>
+			</p>
+			<div class="poster">
+				Posted by <%= review.user.name %> on <%= review.created_at %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

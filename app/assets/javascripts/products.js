@@ -10,5 +10,26 @@ $(document).on('ready page:load', function() {
 
 		$.getScript('/products?search=' + searchValue);
 		
-	    });
+	});
+
  });
+
+// $(window).scrollTop(); to get position in pixels of top edge of window in pixels relative to top of document
+// $(window).height(); to get height in pixels of window (changed based on window size)
+// $(document).height(); to get height in pixels of document(this never changes)
+
+// a good formula for determining when to trigger AJAX request on scroll
+
+// var url = $('.pagination span.next').children().attr('href');
+// $(wondow).scroll(function(){
+// 		if ( url && $(window).scrollTop() > ($(document).height() - $(window).height() - 50) {
+//			//var nextPage = $('.pagination span.next').children().attr('href'); gets us next page -> '/?page=2'
+//			$('.pagination').text("Fetching more results...");
+//			$.getScript(url);
+//		}
+// });
+// 
+// SOMETIMES WE MIGHT NEED TO MAKE SOMETHING A DIV instead of a <p>
+// 
+// 
+// 

@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
 
 		respond_to do |format|
 			if @review.save
-				format.html { redirect_to products_path(@product.id), notice: "Review posted"}
+				format.html { redirect_to product_path(@product.id), notice: "Review posted"}
 				format.js {}
 			else
 				format.html {render 'products/show', alert: "There was an error."}
