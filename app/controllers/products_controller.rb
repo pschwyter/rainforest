@@ -8,10 +8,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = if params[:search]
-      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%").order(created_at: :desc).page(params[:page])
     else
-  	 Product.all
+  	 Product.order(created_at: :desc).page(params[:page])
     end
+    puts @products.count
 
     respond_to do |format|
       format.html

@@ -1,4 +1,9 @@
 
-<p><%= product.name %>, <%= product.description %>, $<%= product.formatted_price %>
-	<%= link_to "View", product_path(product) %>
-</p>
+<li>
+	<p>
+		<%= link_to product_path(product.id) do %>
+			<%= product.name %>, $<%= product.formatted_price %>
+		<% end %><br>
+		<%= truncate(product.description, length: 100) %>
+	</p>
+</li>

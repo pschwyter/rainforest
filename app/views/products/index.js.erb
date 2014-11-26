@@ -1,4 +1,7 @@
-$('#products').html("<%= j(render @products) %>");
 
-// $('#products').append("<%= j(render @products) %>");
-// $('#products-pagination').html("<%= j(paginate @products) %>")
+<% if params[:search] && params[:page].nil? %>
+	$('#products ul').html("<%= j render (@products) %>");
+<% else %>
+	$('#products ul').append("<%= j render (@products) %>");
+<% end %>
+	$('.pagination').html("<%= j paginate (@products) %>");
