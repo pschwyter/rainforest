@@ -1,1 +1,7 @@
-$(".review-list").html("<%= j(render '/reviews/reviews') %>")
+<% if @review.errors.any? %>
+	$("#review-errors").html("<%= j(render '/reviews/review_errors') %>")
+<% else %>
+	$("#review-errors").html("");
+	$(".review-list").html("<%= j(render '/reviews/reviews') %>");
+	$("#new-review")[0].reset();
+<% end %>

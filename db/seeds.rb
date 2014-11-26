@@ -11,5 +11,11 @@ Product.create(name: 'iPhone 5', description: 'A cool apple device', price_in_ce
 Product.create(name: 'Couch', description: 'Great for sitting on', price_in_cents: 34999)
 Product.create(name: 'Samsung S5', description: 'A cool android phone', price_in_cents: 54999)
 
-# 100.times do
-# 	Product.create(name: "#{}")
+100.times do |i|
+	Product.create({
+		name: "Product#{i}",
+		description: "Description#{i}",
+		price_in_cents: i
+		}
+	)
+end
